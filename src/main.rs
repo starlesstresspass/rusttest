@@ -89,7 +89,29 @@ loop{
           todo_list.list();
           println!("Enter the index of todo to remove: ");
           io::stdout().flush().unwrap();
+          let mut index = String::new();
+          io::stdin().read_line(&mut index).unwrap();
+          let index: usize = index.trim().parse().unwrap_or(0) - 1;
+          todo_list.remove(index);
+          println!("Todo removed!");
+        }
+        3=>{
+            todo_list.list();
+            println!("Enter the index of the todo to complete: ");
+            io::stdout().flush().unwrap();
+            let mut index = String::new();
+            io::stdin().read_line(&mut index).unwrap();
+            let index: usize = index.trim().parse().unwrap_or(0) - 1;
+            todo_list.complete(index);
+            println!("Todo marked as complete!");
 
+        }
+        4=>{
+            todo_list.list();
+        }
+        5=>{
+            println!("Exiting..");
+            break;
         }
         _ => println!("Invalid option."),
     }
