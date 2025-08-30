@@ -1,6 +1,7 @@
 use std::char::from_u32;
 use rand;
 use rand::{Rng, thread_rng};
+use std::io::{self, Write};
 //use clap::Parser
 //#[derive(Parser)]
 
@@ -63,5 +64,34 @@ fn main() {
         result.push(ch);
     }
     println!("{}", result);
+let mut todo_list = TodoList::new();
+loop{
+    println!("\n 1. Add Todo");
+    println!("2. Remove Todo");
+    println!("3. Complete Todo");
+    println!("4. List Todos");
+    println!("5. Exit");
+    println!("Choose an option: ");
+    io::stdout().flush().unwrap();
+    let mut input = String::new();
+    io::stdin().read_line(&mut input).unwrap_or(0);
+    let choice: u32 = input.trim().parse().unwrap_or(0);
+    match choice {
+        1=>{
+         println!("Enter todo description: ");
+         io::stdout().flush().unwrap();
+         let mut description = String::new();
+         io::stdin().read_line(&mut description).unwrap();
+         todo_list.add(description.trim().to_string());
+         println!("Todo added!");
+        }
+        2 =>{
+          todo_list.list();
+          println!("Enter the index of todo to remove: ");
+          io::stdout().flush().unwrap();
 
+        }
+        _ => println!("Invalid option."),
+    }
+ }
 }
