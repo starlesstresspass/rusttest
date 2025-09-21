@@ -25,3 +25,5 @@ lengthTwo (_:xs) = 1 + lengthTwo xs
 sumTwo :: (Num a) => [a] -> a 
 sumTwo [] = 0
 sumTwo (x:xs) = x + sumTwo xs  
+--sayHello name@(x:xs) = "Hello " ++ name ++ ", your name starts with " ++ [x]
+--sayHello "Alice"
