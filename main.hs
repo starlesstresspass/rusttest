@@ -1,4 +1,4 @@
-main = putStrLn "Hello, World!"
+--main = putStrLn "Hello, World!"
 doubleMe x = x * 2
 squareMe :: Num y => y -> y  
 squareMe x = x * x
@@ -27,16 +27,38 @@ sumTwo [] = 0
 sumTwo (x:xs) = x + sumTwo xs  
 --sayHello name@(x:xs) = "Hello " ++ name ++ ", your name starts with " ++ [x]
 --sayHello "Alice"
-densityTell :: (RealFloat a) => a -> String 
-densityTell density mass volume
-     |
-      density < 1.2 = "Your gonna fly!"
-      |
-     density <= 1000.0 = "Have fun swimming"
-     |
-     otherwise = "your gonna sink lmaoo"
-     where density = mass / volume
+--densityTell :: (RealFloat a) => a -> a -> String
+--densityTell density 
+  --   |
+    --  density < 1.2 = "Your gonna fly!"
+      -- |
+     -- density <= 1000.0 = "Have fun swimming"
+      -- |
+     -- otherwise = "your gonna sink lmaoo"
+     
 initials :: String -> String -> String
 initials firstname lastname = [f] ++ "." ++ [l] ++ "."
          where (f:_) = firstname
 	       (l:_) = lastname
+data Operation = Add | Subtract | Multiply | Divide deriving (Show, Read)
+getInput :: IO(Double, Double, Operation) 
+
+getInput = do
+    putStrLn "Enter the first number: "
+    num1 <- getLine
+    putStrLn "Enter the second number: "
+    num2 <- getLine
+    putStrLn "Enter an operator: "
+    op <- getLine
+    return(read num1, read num2, read op)
+calculate :: Double -> Double -> Operation -> Double
+calculate x y Add = x + y
+calculate x y Subtract = x - y
+calculate x y Multiply = x * y
+calculate x y Divide = x / y
+
+main :: IO()
+main = do
+   (num1, num2, op) <- getInput
+   let result = calculate num1 num2 op
+   putStrLn $"The result is: " ++ show result
