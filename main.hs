@@ -18,4 +18,7 @@ luckySeven 7 = "Your lucky!"
 luckySeven x = "Unlucky bastard!"
 headTwo :: [a] -> a 
 headTwo [] = error "Cant call head on an empty array/tuple."
-headTwo (x:_) = x 
+headTwo (x:_) = x
+lengthTwo :: (Num b) => [a] -> b 
+lengthTwo [] = 0
+lengthTwo (_:xs) = 1 + lengthTwo xs 
