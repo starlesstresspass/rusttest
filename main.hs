@@ -22,3 +22,6 @@ headTwo (x:_) = x
 lengthTwo :: (Num b) => [a] -> b 
 lengthTwo [] = 0
 lengthTwo (_:xs) = 1 + lengthTwo xs 
+sumTwo :: (Num a) => [a] -> a 
+sumTwo [] = 0
+sumTwo (x:xs) = x + sumTwo xs  
