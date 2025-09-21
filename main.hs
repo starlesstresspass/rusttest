@@ -27,3 +27,16 @@ sumTwo [] = 0
 sumTwo (x:xs) = x + sumTwo xs  
 --sayHello name@(x:xs) = "Hello " ++ name ++ ", your name starts with " ++ [x]
 --sayHello "Alice"
+densityTell :: (RealFloat a) => a -> String 
+densityTell density mass volume
+     |
+      density < 1.2 = "Your gonna fly!"
+      |
+     density <= 1000.0 = "Have fun swimming"
+     |
+     otherwise = "your gonna sink lmaoo"
+     where density = mass / volume
+initials :: String -> String -> String
+initials firstname lastname = [f] ++ "." ++ [l] ++ "."
+         where (f:_) = firstname
+	       (l:_) = lastname
