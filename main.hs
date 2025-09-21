@@ -13,3 +13,6 @@ succTwo x = x + 1
 
 --factorial :: Num x => x -> x
 --factorial x = map  [1..x]
+luckySeven :: (Integral a) => a -> String
+luckySeven 7 = "Your lucky!"
+luckySeven x = "Unlucky bastard!"
