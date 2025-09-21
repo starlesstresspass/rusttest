@@ -16,3 +16,6 @@ succTwo x = x + 1
 luckySeven :: (Integral a) => a -> String
 luckySeven 7 = "Your lucky!"
 luckySeven x = "Unlucky bastard!"
+headTwo :: [a] -> a 
+headTwo [] = error "Cant call head on an empty array/tuple."
+headTwo (x:_) = x 
