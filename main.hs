@@ -61,5 +61,5 @@ main :: IO()
 main = do
    (num1, num2, op) <- getInput
    let result = calculate num1 num2 op
-   putStrLn $"The result is: " ++ show result
+   putStrLn $ "The result is: " ++ show result
    print(let x = 5 in x * 2)
